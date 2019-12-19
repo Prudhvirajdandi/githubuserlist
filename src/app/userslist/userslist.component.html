@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="javascript:void(0)">Github Users</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input
+            #input
+            (keyup)="onSearch(input.value)"
+            type="text"
+            placeholder="Search users..."
+            class="form-control"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h2 class="mt-50">
+    <span *ngIf="loadingData">loading...</span
+    ><span *ngIf="!loadingData">UsersList</span>
+  </h2>
+  <div class="row" *ngIf="allUserData.length > 0">
+    <div *ngFor="let item of allUserData" class="col-xs-6 col-md-2">
+      <div class="thumbnail">
+        <img [src]="item.avatar_url" />
+        <div class="caption">
+          <h4 class="text-capitalize">{{ item.login }}</h4>
+          <p>
+            <button
+              [routerLink]="['/user', item.id]"
+              class="btn btn-primary"
+              role="button"
+            >
+              More info
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="allUserData.length == 0">
+    <h4>No Users Found...</h4>
+  </div>
+</div>

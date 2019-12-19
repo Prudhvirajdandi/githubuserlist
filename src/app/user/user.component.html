@@ -1,0 +1,30 @@
+<div class="container mt-50">
+  <div class="thumbnail">
+    <img [src]="userData?.avatar_url" />
+    <div class="caption text-center">
+      <h4>Type : {{ userData?.type }}</h4>
+      <h4>Person Name : {{ userData?.name ? userData.name : "sorry.. not available." }}</h4>
+      <h4>
+        Email: {{ userData?.email ? userData.email : "sorry.. not available." }}
+      </h4>
+      <h4>
+        Company Name :
+        {{ userData?.company ? userData.company : "sorry.. not available." }}
+      </h4>
+      <h4>
+        Bio :
+        {{ userData?.bio ? userData.bio : "sorry.. not available." }}
+      </h4>
+      <h4>
+        Created Date :
+        {{ userData?.created_at | date }}
+      </h4>
+      <h4>
+        Updated Date :
+        {{ userData?.updated_at | date }}
+      </h4>
+      <button class="text-center btn btn-primary" routerLink="/userslist">Back</button>
+    </div>
+   
+  </div>
+</div>
